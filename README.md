@@ -1,5 +1,7 @@
-# Jobs
+# Joby
+Hey, This is Joby, a very WIP initiative led by Developer Circle Casablanca to gather job posts on the group on one place, So interested can check the available job position. The idea is adapted from [Salah](https://twitter.com/salahelawad)'s idea.
 
+# How we build it
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
 ## Development server
