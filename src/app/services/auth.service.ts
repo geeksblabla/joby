@@ -27,3 +27,17 @@ export class AuthGuard implements CanActivate {
     }
 
 }
+@Injectable()
+export class PublicGuard implements  CanActivate {
+  constructor(private auth: AngularFireAuth, private router: Router) {
+  }
+
+  canActivate(): Observable<boolean> {
+    return this.auth.authState.map(state => !!state)
+      .do(authenticated => {
+        if (authenticated) { this.router.navigate([ '/jobs' ]); }
+      })
+
+  }
+
+}

@@ -12,16 +12,13 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {ToastyModule} from 'ng2-toasty';
 import {HelperService} from './services/helper.service';
 import {LoginComponent} from './login/login.component';
-import {AuthGuard} from './services/auth.service';
+import {AuthGuard, PublicGuard} from './services/auth.service';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 
 const routes: Routes = [
-  {
-    path: '', canActivate: [AuthGuard], children: [
-      {path: 'post-job', component: JobformComponent},
-      {path: 'jobs', component: JoblistComponent}]
-  },
-  {path: 'login', component: LoginComponent},
+  {path: 'post-job', component: JobformComponent, canActivate: [AuthGuard]},
+  {path: 'jobs', component: JoblistComponent},
+  {path: 'login', component: LoginComponent, canActivate: [PublicGuard]},
   {path: '**', redirectTo: '/jobs'}
 ];
 
@@ -42,7 +39,7 @@ const routes: Routes = [
     AngularFireAuthModule,
     ToastyModule
   ],
-  providers: [HelperService, AuthGuard],
+  providers: [HelperService, AuthGuard, PublicGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
