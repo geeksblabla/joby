@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
+    <div class="form-box">
+      <div class="form-top">
+        <div class="form-top-left">
+          <h3>Login  </h3>
+        </div>
+        <div class="form-top-right">
+          <i class="fa fa-sign-in"></i>
+        </div>
+      </div>
+      <div class="form-bottom">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" role="form" action="" method="post" class="registration-form">
+          <div class="form-group">
+            <label class="sr-only" for="form-job-title">Login</label>
+            <input formControlName="user" type="text" name="form-job-title" placeholder="login" class="form-first-name-title form-control" id="form-job-username">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="form-job-title">Password</label>
+            <input formControlName="pass" type="password" name="form-job-title" placeholder="password" class="form-first-name-title form-control" id="form-job-password">
+          </div>
+
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng2-toasty [position]="'top-center'"></ng2-toasty>
