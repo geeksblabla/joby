@@ -18,6 +18,9 @@ export class JoblistComponent implements OnInit {
   navigateToJobForm(){
     this.Router.navigate(['/post-job'])
   }
+  navigateToJobLogin(){
+    this.Router.navigate(['/login'])
+  }
   ngOnInit() {
   }
 
