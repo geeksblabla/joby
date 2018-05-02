@@ -1,0 +1,33 @@
+<div class="row">
+  <button (click)="navigateToJobForm()" type="submit" class="btn">Job Form</button>
+</div>
+<div class="row">
+  <div *ngFor="let item of items | async" class="col-sm-6">
+    <div class="form-box">
+      <div class="widget lazur-bg p-xl">
+        <h2>
+          {{item?.title || 'TBD'}}
+        </h2>
+        <ul class="list-unstyled m-t-md">
+          <li>
+            <span class="fa fa-envelope m-r-xs"></span>
+            <label>Contact:</label>
+            {{item?.contact}}
+          </li>
+          <li>
+            <span class="fa fa-handshake-o m-r-xs"></span>
+            <label>Contract type:</label>
+            {{item?.contractType}}
+          </li>
+          <li>
+            <span class="fa fa-briefcase m-r-xs"></span>
+            <label>Job Description:</label>
+            <p style="height: 100px; overflow-y: scroll">{{item?.description}}</p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+</div>

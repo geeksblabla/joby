@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
+    <div class="form-box">
+      <div class="form-top">
+        <div class="form-top-left">
+          <h3>Job apply </h3>
+          <p>Fill in the form below </p>
+        </div>
+        <div class="form-top-right">
+          <i class="fa fa-briefcase"></i>
+        </div>
+      </div>
+      <div class="form-bottom">
+        <form [formGroup]="jobForm" (ngSubmit)="postForm()" role="form" action="" method="post" class="registration-form">
+          <div class="form-group">
+            <label class="sr-only" for="form-job-title">Job title</label>
+            <input formControlName="title" type="text" name="form-job-title" placeholder="Job title" class="form-first-name-title form-control" id="form-job-title">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="form-job-description">Job Description</label>
+            <textarea  formControlName="description" name="form-job-description" placeholder="Job Description"
+                      class="form-about-yourself form-control" id="form-job-description"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="form-contract-type">Last name</label>
+            <select formControlName="contractType" name="form-contract-type" placeholder="Contract type" class="toto form-last-name form-control" id="form-contract-type">
+              <option>CDI</option>
+              <option>CDD</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="form-email">Contact</label>
+            <input formControlName="contact" type="text" name="form-email" placeholder="contact@contact.com" class="form-email form-control" id="form-email">
+          </div>
+
+          <button type="submit" class="btn">Apply</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng2-toasty [position]="'top-center'"></ng2-toasty>
