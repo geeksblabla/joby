@@ -15,15 +15,19 @@ import 'rxjs/add/observable/from';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
     constructor(private auth: AngularFireAuth, private router: Router) {}
 
     canActivate(): Observable<boolean> {
       return this.auth.authState
         .map(state => !!state)
         .do(authenticated => {
-          if (!authenticated) { this.router.navigate([ '/login' ]); }
-      })
+          console.log(authenticated)
+          if (!authenticated) {
+            this.router.navigate([ '/login' ]);
+            return false;
+          }
+          return true;
+      });
     }
 
 }
@@ -33,10 +37,7 @@ export class PublicGuard implements  CanActivate {
   }
 
   canActivate(): Observable<boolean> {
-    return this.auth.authState.map(state => !!state)
-      .do(authenticated => {
-        if (authenticated) { this.router.navigate([ '/jobs' ]); }
-      })
+    return this.auth.authState.map(state => !state);
 
   }
 
